@@ -1,23 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs'
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import { ClerkProvider } from "@clerk/nextjs";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -26,13 +13,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-     <ClerkProvider>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          {children}
+    <html lang="en">
+      <ClerkProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#F5F5F5]`}
+        >
+          {/* Navbar */}
+          <div className="relative w-full flex justify-center">
+            <Navbar />
+          </div>
+
+          {/* Page content */}
+          <main className="mt-20 p-4">
+            {children}
+          </main>
         </body>
-      </html>
-    </ClerkProvider>
-    
+      </ClerkProvider>
+    </html>
   );
 }
