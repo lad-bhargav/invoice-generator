@@ -24,20 +24,20 @@ const Page = () => {
     contentRef: printRef,  // Directly pass the ref
     documentTitle: invoice ? `invoice_${invoice.id}` : "invoice",
          pageStyle: `
-       @page {
-         size: A1;  /* Changed from invalid '100vh' to 'A1' for a very large page (largest standard size). Alternatives: 'A2' for slightly smaller, or '24in 36in' for custom ultra-large. */
-         margin: 20mm;  /* Kept your existing margin */
-       }
-       body {
-         margin: 0;
-         display: flex;
-         justify-content: center;  /* Centers horizontally */
-         align-items: center;       /* Centers vertically */
-         min-height: 100vh;         /* Ensures full page height for centering */
-         font-family: Arial, sans-serif;  /* Optional: Improves readability in PDF */
-       }
-     `,
-  });
+            @page {
+              size: A1;  /* Changed from invalid '100vh' to 'A1' for a very large page (largest standard size). Alternatives: 'A2' for slightly smaller, or '24in 36in' for custom ultra-large. */
+              margin: 20mm;  /* Kept your existing margin */
+            }
+            body {
+              margin: 0;
+              display: flex;
+              justify-content: center;  /* Centers horizontally */
+              align-items: center;       /* Centers vertically */
+              min-height: 100vh;         /* Ensures full page height for centering */
+              font-family: Arial, sans-serif;  /* Optional: Improves readability in PDF */
+            }
+        `,
+    });
 
   if (!invoice) return <div>Loading...</div>;
 

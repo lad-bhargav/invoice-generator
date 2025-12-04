@@ -7,6 +7,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import Link from "next/link";
+import { FileText } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -24,7 +25,7 @@ const Navbar = () => {
     ">
       {/* Left: Title */}
       <h1 className="text-xl font-bold text-blue-950 cursor-pointer">
-        <Link href="/">genInvoice</Link>
+        <Link href="/" className="flex gap-1 justify-center items-center"><FileText />genInvoice</Link>
       </h1>
 
       {/* Center Links */}
